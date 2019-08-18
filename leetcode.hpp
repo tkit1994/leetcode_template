@@ -47,8 +47,8 @@ TreeNode *createTree(TreeNode *root, std::vector<int> vec, int i) {
 
 void printTree(TreeNode *root) {
   if (root != NULL) {
+    fmt::print("{} ", root->val);
     printTree(root->left);
     printTree(root->right);
-    fmt::print("{} ", root->val);
   }
 }
