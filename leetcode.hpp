@@ -7,6 +7,7 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include <queue>
 struct ListNode {
   int val;
   ListNode *next;
