@@ -12,9 +12,7 @@ target_link_libraries(leetcode fmt)
 install(TARGETS leetcode
         RUNTIME DESTINATION bin
         LIBRARY DESTINATION lib)
-install(TARGETS fmt
-        RUNTIME DESTINATION bin
-        LIBRARY DESTINATION lib)
+        
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
