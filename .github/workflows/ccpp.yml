@@ -9,6 +9,8 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
+      with:
+        submodules: recursive
     - name: configure
       run: cmake .
     - name: build -DCMAKE_BUILD_TYPE release
