@@ -16,6 +16,6 @@ jobs:
     - name: build 
       run: cmake --build .
     - name: install program
-      run: make install
+      run: sudo make install
     - name: run program
       run: leetcode
