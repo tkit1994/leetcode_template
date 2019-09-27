@@ -14,4 +14,4 @@ jobs:
     - name: build -DCMAKE_BUILD_TYPE release
       run: cmake --build .
     - name: run program
-      run ./leetcode
+      run: ./leetcode
