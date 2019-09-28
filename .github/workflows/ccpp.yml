@@ -16,4 +16,4 @@ jobs:
     - name: build 
       run: cmake --build .
     - name: run program
-      run: ./leetcode
+      run: ./bin/leetcode
