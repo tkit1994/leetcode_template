@@ -2,3 +2,6 @@
 	path = thirdparty/fmt
 	url = https://github.com/fmtlib/fmt.git
 	ignore = dirty
+[submodule "thirdparty/dbg-macro"]
+	path = thirdparty/dbg-macro
+	url = https://github.com/sharkdp/dbg-macro.git
