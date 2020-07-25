@@ -1,13 +1,18 @@
 #pragma once
-#include <algorithm>
 #include <fmt/ranges.h>
+
+#ifdef __linux__ 
+#include <bits/stdc++.h>
+#else
+#include <algorithm>
 #include <iostream>
 #include <numeric>
-#include <stack>
-#include <vector>
-#include <string>
-#include <sstream>
 #include <queue>
+#include <sstream>
+#include <stack>
+#include <string>
+#include <vector>
+#endif
 struct ListNode {
   int val;
   ListNode *next;
@@ -38,7 +43,6 @@ ListNode *createList(std::vector<int> vec) {
 }
 
 TreeNode *createTree(TreeNode *root, std::vector<int> vec, int i) {
-
   if (i < vec.size()) {
     TreeNode *tmp = new TreeNode(vec[i]);
     root = tmp;
