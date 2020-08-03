@@ -1,49 +1,36 @@
 #ifdef LEETCODE
 #include <dbg.h>
+
 #include "leetcode.hpp"
 using namespace std;
 #endif
 
 class Solution {
-// dynamic programming with cache
-private:
-  vector<bool> dp;
-  int max;
-
 public:
-  Solution() {
-    this->max = 2;
-    vector<bool> vec(1001);
-    vec[0] = false;
-    vec[1] = false;
-    vec[2] = true;
-    this->dp = vec;
-  };
-  bool divisorGame(int N) {
-    if (N <= this->max)
-      return this->dp[N];
-
-    for (int k = this->max + 1; k <= N; k++) {
-      for (int i = 1; i < k / 2; i++) {
-        if (k % i == 0 && !dp[k - i]) {
-          dp[k] = true;
-          break;
-        }
-        dp[k] = false;
-      }
+  string addStrings(string num1, string num2) {
+    string res = "";
+    int carry = 0;
+    int i = num1.length() - 1, j = num2.length() - 1;
+    while (i >= 0 || j >= 0 || carry != 0) {
+      int x = i >= 0 ? num1[i] - '0' : 0;
+      int y = j >= 0 ? num2[j] - '0' : 0;
+      int sum = x + y + carry;
+      res.push_back(sum % 10 + '0');
+      carry = sum / 10;
+      i--;
+      j--;
     }
-    this->max = N;
-    return dp[N];
-  }
-}
+    reverse(res.begin(), res.end());
 
-;
+    return res;
+  }
+};
 #ifdef LEETCODE
 int main(int, char **) {
   Solution s;
-  auto result1 = s.divisorGame(999);
-  fmt::print("{}\n", result1);
-  auto result2 = s.divisorGame(333);
-  fmt::print("{}\n", result2);
+  auto res = s.addStrings("1234", "789");
+  fmt::print("{}\n", res);
+  res = s.addStrings("1", "9");
+  fmt::print("{}\n", res);
 }
 #endif
