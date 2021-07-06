@@ -1,18 +1,24 @@
-#pragma once
+#ifndef __LEETCODE_H__
+#define __LEETCODE_H__
+
 #include <fmt/ranges.h>
 
-#ifdef __linux__ 
+#ifdef __linux__
 #include <bits/stdc++.h>
 #else
 #include <algorithm>
 #include <iostream>
+#include <limits>
 #include <numeric>
 #include <queue>
 #include <sstream>
 #include <stack>
 #include <string>
+#include <unordered_map>
+#include <unordered_set>
 #include <vector>
-#endif
+
+#endif //__linux__
 struct ListNode {
   int val;
   ListNode *next;
@@ -59,3 +65,4 @@ void printTree(TreeNode *root) {
     printTree(root->right);
   }
 }
+#endif // __LEETCODE_H__

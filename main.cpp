@@ -3,34 +3,30 @@
 
 #include "leetcode.hpp"
 using namespace std;
-#endif
+#endif // LEETCODE
 
 class Solution {
 public:
-  string addStrings(string num1, string num2) {
-    string res = "";
-    int carry = 0;
-    int i = num1.length() - 1, j = num2.length() - 1;
-    while (i >= 0 || j >= 0 || carry != 0) {
-      int x = i >= 0 ? num1[i] - '0' : 0;
-      int y = j >= 0 ? num2[j] - '0' : 0;
-      int sum = x + y + carry;
-      res.push_back(sum % 10 + '0');
-      carry = sum / 10;
-      i--;
-      j--;
+  vector<int> intersect(vector<int> &nums1, vector<int> &nums2) {
+    unordered_map<int, int> mp;
+    for (auto n : nums1) {
+      mp[n]++;
     }
-    reverse(res.begin(), res.end());
-
-    return res;
+    vector<int> result;
+    for (auto n : nums2) {
+      if (mp.find(n) != mp.end() && mp[n] != 0) {
+        mp[n]--;
+        result.push_back(n);
+      }
+    }
+    return result;
   }
 };
 #ifdef LEETCODE
 int main(int, char **) {
+  vector<int> nums1 = {4, 9, 5}, nums2 = {9, 4, 8, 9, 4, 2};
   Solution s;
-  auto res = s.addStrings("1234", "789");
-  fmt::print("{}\n", res);
-  res = s.addStrings("1", "9");
-  fmt::print("{}\n", res);
+  auto res = s.intersect(nums1, nums2);
+  fmt::print("{}", res);
 }
-#endif
+#endif // LEETCODE
